@@ -18,12 +18,12 @@
 			</div>
 		</div>
 		<div class="s-copyright">
-			<div>
+			<div class="s-top">
 				<h4>Copyright © 2017, Smartisan Digital Co., Ltd. All Rights Reserved.北京锤子数码科技有限公司</h4>
 				<ul>
-					<li>法律声明</li>
-					<li>隐私条款</li>
-					<li>开发者中心</li>
+					<li><a>法律声明</a></li>
+					<li><a>隐私条款</a></li>
+					<li><a>开发者中心</a></li>
 				</ul>
 				<div>
 					
@@ -181,7 +181,36 @@
 			width: 1220px;
 			margin: 0 auto;
 			overflow: hidden;
-			padding: 80px 0px 60px 0;
+			padding-bottom: 25px;
+			.s-top{
+				color: #434d55;
+				font-size: 12px;
+				padding: 40px 0;
+
+				h4{
+					float: left;
+				}
+				ul{
+					padding: 0;
+					float: left;
+					margin-left: 10px;
+					margin-top: 17px;
+					li{
+						float: left;
+						line-height: 12px;
+						padding: 1px 10px 0;
+						border-left: 1px solid #ccc;
+						a{
+							color: #84a3e3;
+							cursor: pointer;
+							-webkit-transition: all .15s ease-out;
+							transition: all .15s ease-out;
+							text-decoration: none;
+							font-weight: bold;
+						}
+					}
+				}
+			}
 		}
 		ul{
 			li{
