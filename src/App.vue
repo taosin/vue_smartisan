@@ -2,15 +2,18 @@
   <div id="app">
     <top></top>
     <router-view></router-view>
+    <bot></bot>
   </div>
 </template>
 
 <script>
   import top from './components/header.vue';
+  import bot from './components/footer.vue';
   export default {
     name: 'app',
     components:{
-      top
+      top,
+      bot
     },
   }
 </script>

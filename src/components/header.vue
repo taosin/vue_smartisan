@@ -276,7 +276,7 @@
 			width: 100%;
 			transition:all .6s;
 			height: 60px;
-			animation:myfirst .3s;
+			animation:myfirst .5s;
 			@keyframes myfirst
 			{
 				from {height: 0px;}
@@ -289,13 +289,13 @@
 				margin: 0;
 				border: none;
 				margin-top: 5px;
-				animation:myfirsts .5s;
+				animation:myfirsts .3s;
 				@keyframes myfirsts
 				{
 					from {dispaly: none;}
 					to {dispaly: block;}
 				}
-				transition: display .5s;
+				transition: display .1s;
 				.s-left{
 					width: 600px;
 					height: 38px;
