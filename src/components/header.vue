@@ -71,17 +71,6 @@
 			}
 		},
 		mounted(){
-			// window.onscroll = function () {
-			// 	const self = this;
-			// 	self.tsio = document.body.scrollTop||document.documentElement.scrollTop;
-			// 	if(self.tsio === 0){
-			// 		this.ttio = true;
-			// 	}else{
-			// 		this.ttio = false;
-			// 	}
-			// 	console.info(this.ttio);
-			// 	console.info(self.ttio);
-			// };
 			window.addEventListener('scroll', this.sscroll);
 		},
 		watch:{
@@ -90,6 +79,7 @@
 			sscroll(){
 				const self = this;
 				let tsio = document.body.scrollTop||document.documentElement.scrollTop;
+				console.info(tsio);
 				if(tsio === 0){
 					this.ttio = true;
 				}else{
@@ -254,6 +244,7 @@
 								box-shadow: inset 0 0 0 1px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.1);
 								margin-top: -7px;
 								cursor: pointer;
+								transition:.6s;
 							}
 							.s-now-shop:hover{
 								background-color: #658adb;
@@ -336,7 +327,7 @@
 								width: 110px;
 								height: 39px;
 								line-height: 40px;
-								transition: .5s;
+								transition:.6s;
 							}
 						}
 					}
