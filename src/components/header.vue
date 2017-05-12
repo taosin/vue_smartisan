@@ -48,7 +48,7 @@
 		data () {
 			return {
 				menus:[
-				{ text:'在线商城', url:'/index' },
+				{ text:'在线商城', url:'/shop' },
 				{ text:'坚果Pro', url:'/hello' },
 				{ text:'Smartisan M1/M1L', url:'/index' },
 				{ text:'Smartisan OS', url:'/index' },

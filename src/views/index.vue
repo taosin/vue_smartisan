@@ -22,7 +22,6 @@
 
 							</div>
 							<div class="s-img img-2">
-
 							</div>
 						</div>
 					</div>
@@ -53,6 +52,8 @@
 		mounted(){
 			this.init();
 			window.addEventListener('scroll', this.sscroll);
+			window.addEventListener('DOMMouseScroll', this.scrollFunc, false); 
+			// window.onmousewheel = document.onmousewheel = scrollFunc;
 		},
 		methods:{
 			sscroll(){
@@ -77,6 +78,26 @@
 					topI:0,
 					initialSlide:this.initialSlide
 				});
+			},
+			scrollFunc(e){
+				var direct = 0;  
+				e = e || window.event;  
+				if (e.wheelDelta) {  
+					if (e.wheelDelta > 0) { 
+						alert("滑轮向上滚动");  
+					}  
+					if (e.wheelDelta < 0) { 
+						alert("滑轮向下滚动");  
+					}  
+				} else if (e.detail) { 
+					if (e.detail> 0) { 
+						alert("滑轮向上滚动");  
+					}  
+					if (e.detail< 0) { 
+						alert("滑轮向下滚动");  
+					}  
+				}  
+				ScrollText(direct);  
 			}
 		}
 	}
