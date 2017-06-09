@@ -1,17 +1,37 @@
 <template>
 	<div class="s-shop">
 		<div class="s-banner">
-			<div class="swiper-container">
-				<div class="swiper-wrapper">
-					<div class="swiper-slide">
-						<div class="swiper-1 s-swiper">
-							
-						</div>
+			<div class="s-banner-items">
+				<div class="s-banner-item">
+					<div class="s-img1">
+						<img :src="img1">
 					</div>
-					<div class="swiper-slide"></div>
-					<div class="swiper-slide">Slide 5</div>
+					<div class="s-img2">
+						<img :src="img2">
+					</div>
+					<div class="s-img3">
+						<img :src="img3">
+					</div>
 				</div>
-				<div class="swiper-pagination index-pagination"></div>
+				<div class="s-paganition">
+					<ul class="s-p-ul">
+						<li class="s-p-li">
+							<div class="s-p-s"></div>
+						</li>
+						<li class="s-p-li">
+							<div class="s-p-s"></div>
+						</li>
+						<li class="s-p-li">
+							<div class="s-p-s"></div>
+						</li>
+						<li class="s-p-li">
+							<div class="s-p-s"></div>
+						</li>
+						<li class="s-p-li">
+							<div class="s-p-s"></div>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 		<div class="s-1">
@@ -33,32 +53,19 @@
 	</div>
 </template>
 <script>
-	require('./../../static/css/swiper.min.css');
-	require('./../../static/js/swiper.min.js');
 	export default {
 		components:{
 		},
 		data () {
 			return {
-				mousewheelControl:false,
-				initialSlide:0
+				img1:'http://image.smartisanos.cn/resource/b/8/J1.png?x-oss-process=image/resize,w_1220/quality,Q_100/format,webp',
+				img2:'http://image.smartisanos.cn/resource/e/3/J2.png?x-oss-process=image/resize,w_1220/quality,Q_100/format,webp',
+				img3:'http://image.smartisanos.cn/resource/2/8/J3.png?x-oss-process=image/resize,w_1220/quality,Q_100/format,webp'
 			}
 		},
 		mounted(){
-			this.init();
 		},
 		methods:{
-			init(){
-				var swiper = new Swiper('.swiper-container', {
-					pagination: '.swiper-pagination',
-					slidesPerView: 1,
-					paginationClickable: true,
-					mousewheelControl: false,
-					height:500,
-					effect : 'fade',
-					autoplay : 5000,
-				});
-			}
 		}
 	}
 </script>
@@ -69,45 +76,64 @@
 		background-color: #ededed;
 		margin-top: 1px;
 		padding-top: 50px;
-		height: 600px;
-		.swiper-container {
+		height: 1400px;
+		.s-banner{
 			width: 1220px;
 			height: 500px;
 			margin: 0 auto;
-		}
-		.swiper-slide {
-			text-align: center;
-			font-size: 18px;
-			background: #fff;
-			width: 100%;
-			height: 100%;
-			display: -webkit-box;
-			display: -ms-flexbox;
-			display: -webkit-flex;
-			justify-content: center;
-			-webkit-box-align: center;
-			-ms-flex-align: center;
-			-webkit-align-items: center;
-			align-items: center;
-			transition: all .15s ease-out;
-			background-color: inherit;
-		}
-		.s-swiper{
-			height: 100%;
-			width: 100%;
-			border-radius: 15px;
-			transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-			transition: opacity .3s;
-		}
-		.swiper-1{
-			background-image: url(//static.smartisanos.cn/index/assets/images/banner-3d-shadow.ab4cdb64030945e86f20091b96b00357.png);
-			// position: absolute;
-			background-repeat: no-repeat;
-			background-position: center 0;
-			pointer-events: none;
-		}
-		.index-pagination{
-			// position: absolute;
+			margin-bottom: 20px;
+			.s-banner-items{
+				.s-banner-item{
+					position: absolute;
+					z-index: 4;
+					border: 1px solid #ddd;
+					width: 1220px;
+					height: 500px;
+					border-radius: 10px;
+					.s-img1{
+						position: absolute;
+						z-index: 1;
+					}
+					.s-img2{
+						position: absolute;
+						z-index: 2;
+					}
+					.s-img3{
+						position: absolute;
+						z-index: 3;
+					}
+					.s-img1,.s-img2, .s-img3{
+						margin-top: -27px;
+						img{
+							border-radius: 49px;
+						}
+					}
+				}
+				.s-paganition{
+					position: absolute;
+					z-index: 5;
+					width: 100px;
+					height: 30px;
+					bottom: 113px;
+					left: 560px;
+					text-align: center;
+					ul{
+						list-style: none;
+						padding: 0;
+						li{
+							float: left;
+							padding:0 5px;
+							.s-p-s{
+								width: 10px;
+								height: 10px;
+								background: red;
+								border-radius: 5px;
+								display: inline-block;
+							}
+						}
+					}
+				}
+			}
 		}
 		.s-1{
 			margin-top: 30px;
