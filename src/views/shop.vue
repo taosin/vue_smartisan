@@ -7,7 +7,7 @@
 		<!-- 轮播图 -->
 		<div class="s-banner">
 			<div class="s-banner-items">
-				<div class="s-banner-item">
+				<div class="s-banner-item" @mousemove="mousemove" @mouseout="mousemout" :style="{ transform:'rotateX(' +rotateX +'deg) rotateY('+rotateY+'deg)'}">
 					<div class="s-img1">
 						<img :src="img1">
 					</div>
@@ -52,20 +52,36 @@ export default {
         "http://image.smartisanos.cn/resource/e/3/J2.png?x-oss-process=image/resize,w_1220/quality,Q_100/format,webp",
       img3:
         "http://image.smartisanos.cn/resource/2/8/J3.png?x-oss-process=image/resize,w_1220/quality,Q_100/format,webp",
-      menus: [{ text: "首页", val: "", path: "" },
-			{ text: "手机", val: "", path: "" },
-			{ text: '“足迹系列”手感膜', val: "", path: "" },
-			{ text: '“足迹系列”保护套', val: "", path: "" },
-			{ text: "官方配件", val: "", path: "" },
-			{ text: "空气净化类", val: "", path: "" },
-			{ text: "周边产品", val: "", path: "" },
-			{ text: "第三方配件", val: "", path: "" },
-			{ text: "全部商品", val: "", path: "" },
-			{ text: "服务", val: "", path: "" }]
+      menus: [
+        { text: "首页", val: "", path: "" },
+        { text: "手机", val: "", path: "" },
+        { text: "“足迹系列”手感膜", val: "", path: "" },
+        { text: "“足迹系列”保护套", val: "", path: "" },
+        { text: "官方配件", val: "", path: "" },
+        { text: "空气净化类", val: "", path: "" },
+        { text: "周边产品", val: "", path: "" },
+        { text: "第三方配件", val: "", path: "" },
+        { text: "全部商品", val: "", path: "" },
+        { text: "服务", val: "", path: "" }
+      ],
+			rotateX:0,
+			rotateY:0
     };
   },
   mounted() {},
-  methods: {}
+  methods: {
+    mousemove() {
+			var baseX = event.pageX - event.target.offsetWidth/2 - event.target.offsetLeft;
+			var baseY = event.pageY - event.target.offsetHeight/2 - event.target.offsetTop;
+			this.rotateX = baseY/(-40);
+			this.rotateY = baseX/80;
+			console.log(this.rotateX, this.rotateY)
+    },
+		mousemout(){
+			this.rotateX = 0;
+			this.rotateY = 0;
+		}
+  }
 };
 </script>
 <style scoped lang="less">
@@ -75,12 +91,12 @@ export default {
   background-color: #ededed;
   margin-top: 1px;
   padding-top: 25px;
-	height: 1400px;
-	.s-menus{
-		width: 1220px;
-		margin: 0 auto;
-		height: 50px;
-	}
+  height: 1400px;
+  .s-menus {
+    width: 1220px;
+    margin: 0 auto;
+    height: 50px;
+  }
   .s-banner {
     width: 1220px;
     height: 500px;
@@ -93,7 +109,8 @@ export default {
         border: 1px solid #ddd;
         width: 1220px;
         height: 500px;
-        border-radius: 10px;
+				border-radius: 10px;
+				transform: rotateX(0deg) rotateY(0deg);
         .s-img1 {
           position: absolute;
           z-index: 1;
@@ -114,6 +131,10 @@ export default {
             border-radius: 49px;
           }
         }
+      }
+      .s-banner-item:hover {
+				// transform:rotate(0.8deg);
+				transition:.5s;
       }
       .s-paganition {
         position: absolute;
