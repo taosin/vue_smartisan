@@ -7,7 +7,7 @@
 		<!-- 轮播图 -->
 		<div class="s-banner">
 			<div class="s-banner-items">
-				<div class="s-banner-item" @mousemove="mousemove" @mouseout="mousemout" :style="{ transform:'rotateX(' +rotateX +'deg) rotateY('+rotateY+'deg)'}">
+				<div class="s-banner-item" @mousemove="mousemove" @mouseout="mousemout" :style="{ transform:'rotateX(' +rotateX +'deg) rotateY('+rotateY+'deg)', boxShadow: shadowX+'px '+shadowY +'px '+ blur+'px #ddd'}">
 					<div class="s-img1">
 						<img :src="img1">
 					</div>
@@ -64,23 +64,30 @@ export default {
         { text: "全部商品", val: "", path: "" },
         { text: "服务", val: "", path: "" }
       ],
-			rotateX:0,
-			rotateY:0
+      rotateX: 0,
+      rotateY: 0,
+      shadowX: 0,
+      shadowY: 0,
+      blur: 0
     };
   },
   mounted() {},
   methods: {
     mousemove() {
-			var baseX = event.pageX - event.target.offsetWidth/2 - event.target.offsetLeft;
-			var baseY = event.pageY - event.target.offsetHeight/2 - event.target.offsetTop;
-			this.rotateX = baseY/(-40);
-			this.rotateY = baseX/80;
-			console.log(this.rotateX, this.rotateY)
+      var baseX =
+        event.pageX - event.target.offsetWidth / 2 - event.target.offsetLeft;
+      var baseY =
+        event.pageY - event.target.offsetHeight / 2 - event.target.offsetTop;
+			this.rotateX = baseY / -30;
+			this.rotateY = baseX / 70;
+      this.shadowX = baseX / -30;
+      this.shadowY = baseY / -10;;
+			this.blur = 30;
     },
-		mousemout(){
-			this.rotateX = 0;
-			this.rotateY = 0;
-		}
+    mousemout() {
+      this.rotateX = 0;
+      this.rotateY = 0;
+    }
   }
 };
 </script>
@@ -109,8 +116,10 @@ export default {
         border: 1px solid #ddd;
         width: 1220px;
         height: 500px;
-				border-radius: 10px;
-				transform: rotateX(0deg) rotateY(0deg);
+        border-radius: 10px;
+        transform: rotateX(0deg) rotateY(0deg);
+        box-shadow: 0px 0px 0px #ddd;
+
         .s-img1 {
           position: absolute;
           z-index: 1;
@@ -133,8 +142,8 @@ export default {
         }
       }
       .s-banner-item:hover {
-				// transform:rotate(0.8deg);
-				transition:.5s;
+        // transform:rotate(0.8deg);
+        transition: 0.5s;
       }
       .s-paganition {
         position: absolute;
