@@ -17,13 +17,13 @@
       bot
     },
     mounted(){
-      // window.addEventListener('scroll', this.sscroll);
+      window.addEventListener('scroll', this.sscroll);
     },
     methods:{
       sscroll(){
         const self = this;
         let tsio = document.body.scrollTop||document.documentElement.scrollTop;
-        console.info(tsio);
+        window.tsioHeight = tsio;
       }
     }
   }
